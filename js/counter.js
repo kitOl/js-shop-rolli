@@ -15,6 +15,12 @@ window.addEventListener("click", function (event) {
   if (eventMinus) {
     if (parseInt(counter.innerText) > 1) {
       --counter.innerText;
+    } else if (
+      event.target.closest(".cart-wrapper") &&
+      parseInt(counter.innerText) === 1
+    ) {
+      console.log("Cart Item");
+      event.target.closest(".cart-item").remove();
     }
   }
 });
