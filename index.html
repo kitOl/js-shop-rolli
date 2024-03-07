@@ -17,7 +17,7 @@
 		<div class="container text-center">
 			<img src="img/logo/logo.svg" width="92" alt="Суши и пицца">
 			<div class="display-4">Доставка роллов</div>
-			<p class="lead">Оперативно и вкусно</p>
+			<p class="lead">Быстро и вкусно</p>
 		</div>
 	</header>
 
@@ -191,9 +191,18 @@
 						<!-- // cart-wrapper -->
 
 						<!-- Стоимость заказа -->
-						<div class="cart-total">
-							<p><span class="h5">Доставка:</span> <span class="delivery-cost free">бесплатно</span> </p>
-							<p><span class="h5">Итого:</span> <span class="total-price">330</span> <span class="rouble">₽</span></p>
+						<div class="cart-total none">
+							<p>
+								<span class="h5">Всего товаров:</span> <span class="total-price">0</span> <span class="rouble">₽</span>
+							</p>
+							<p data-cart-delivery>
+								<span class="h5">Доставка:</span> 
+								<span class="delivery-cost free">бесплатно</span><br>
+								<span class="small">При заказе от 600 руб доставка бесплатная</span>
+							</p>
+							<p>
+								<span class="h5">Итого:</span> <span class="total-price total-order">0</span> <span class="rouble">₽</span>
+							</p>
 						</div>
 						<!-- // Стоимость заказа -->
 
@@ -221,6 +230,8 @@
 
 	<!-- Подключаем скрипты -->
 
+	<script src="./js/calcCartPrice.js"></script>
+	<script src="./js/toggleCartStatus.js"></script>
 	<script src="./js/counter.js"></script>
 	<script src="./js/cart.js"></script>
 
