@@ -15,9 +15,19 @@ window.addEventListener("click", function (event) {
       price: card.querySelector(".price__currency").innerText,
       counter: card.querySelector("[data-counter]").innerText,
     };
-    console.log(productInfo);
 
-    const cardItemHTML = `<div class="cart-item" data-id="${productInfo.id}">
+    const itemInCart = cartWrapper.querySelector(
+      `[data-id="${productInfo.id}"]`
+    );
+    console.log(itemInCart);
+
+    if (itemInCart) {
+      const counterElement = itemInCart.querySelector("[data-counter]");
+      counterElement.innerText =
+        parseInt(counterElement.innerText) + parseInt(productInfo.counter);
+      console.log("item count: ", counterElement);
+    } else {
+      const cartItemHTML = `<div class="cart-item" data-id="${productInfo.id}">
     <div class="cart-item__top">
         <div class="cart-item__img">
             <img src="${productInfo.imgSrc}" alt="">
@@ -44,6 +54,9 @@ window.addEventListener("click", function (event) {
     </div>
 </div>`;
 
-    cartWrapper.insertAdjacentHTML("beforebegin", cardItemHTML);
+      cartWrapper.insertAdjacentHTML("beforeend", cartItemHTML);
+    }
+
+    card.querySelector("[data-counter]").innerText = "1";
   }
 });
